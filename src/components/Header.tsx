@@ -1,4 +1,5 @@
 'use client'
+
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -8,13 +9,16 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
+  // ✅ Auto-detect system theme on load
   useEffect(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    if (prefersDark) {
       setTheme('dark')
       document.documentElement.classList.add('dark')
     }
   }, [])
 
+  // ✅ Toggle between light/dark themes
   const toggleTheme = () => {
     if (theme === 'light') {
       setTheme('dark')
@@ -25,6 +29,7 @@ export default function Header() {
     }
   }
 
+  // ✅ Navigation links
   const nav = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -35,11 +40,12 @@ export default function Header() {
   return (
     <header className="fixed w-full z-40 top-0 left-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        {/* Logo */}
         <Link href="#" className="text-xl font-bold">
           Yididiya
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* ✅ Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           {nav.map((item) => (
             <a
@@ -50,7 +56,8 @@ export default function Header() {
               {item.name}
             </a>
           ))}
-          {/* Theme Toggle Button */}
+
+          {/* ✅ Theme Toggle */}
           <button
             onClick={toggleTheme}
             className="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition"
@@ -64,12 +71,13 @@ export default function Header() {
           </button>
         </nav>
 
-        {/* Mobile Menu Toggle */}
+        {/* ✅ Mobile Buttons (Theme + Menu) */}
         <div className="md:hidden flex items-center gap-2">
           {/* Theme Toggle for Mobile */}
           <button
             onClick={toggleTheme}
             className="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+            aria-label="Toggle Theme"
           >
             {theme === 'light' ? (
               <FaMoon className="w-5 h-5 text-gray-700" />
@@ -78,18 +86,18 @@ export default function Header() {
             )}
           </button>
 
-          {/* Hamburger Toggle */}
+          {/* Menu Toggle */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-            aria-label="Toggle menu"
+            aria-label="Toggle Menu"
           >
             {menuOpen ? <FaTimes className="w-5 h-5" /> : <FaBars className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ✅ Mobile Navigation */}
       <AnimatePresence>
         {menuOpen && (
           <motion.nav

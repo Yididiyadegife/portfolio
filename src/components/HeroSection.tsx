@@ -1,4 +1,5 @@
 'use client'
+
 import { motion } from 'framer-motion'
 import { useTheme } from './ThemeProvider'
 import {
@@ -16,6 +17,7 @@ export default function HeroSection() {
   return (
     <section id="home" className="pt-28">
       <div className="section-inner text-center">
+        {/* Main Heading and Intro */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -29,34 +31,70 @@ export default function HeroSection() {
             A Full Stack Web Developer who loves turning ideas into interactive web experiences.
           </p>
 
-          {/* Social Media Icons */}
+          {/* ✅ Social Media Icons */}
           <motion.div
             className="mt-8 flex justify-center items-center gap-5"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <a href="https://github.com/yididiyadegife" target="_blank" rel="noreferrer">
+            <a
+              href="https://github.com/yididiyadegife"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
               <FaGithub className="w-6 h-6 hover:text-accent transition-transform transform hover:scale-110" />
             </a>
-            <a href="https://linkedin.com/in/yididiyadegife" target="_blank" rel="noreferrer">
+
+            <a
+              href="https://linkedin.com/in/yididiyadegife"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >
               <FaLinkedin className="w-6 h-6 hover:text-accent transition-transform transform hover:scale-110" />
             </a>
-            <a href="https://instagram.com/yididiyadegife" target="_blank" rel="noreferrer">
+
+            <a
+              href="https://instagram.com/yididiyadegife"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+            >
               <FaInstagram className="w-6 h-6 hover:text-accent transition-transform transform hover:scale-110" />
             </a>
-            <a href="https://x.com/Yididiya_Degife" target="_blank" rel="noreferrer">
+
+            <a
+              href="https://x.com/Yididiya_Degife"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Twitter"
+            >
               <FaTwitter className="w-6 h-6 hover:text-accent transition-transform transform hover:scale-110" />
             </a>
-            <a href="https://t.me/yididiyayd" target="_blank" rel="noreferrer">
+
+            <a
+              href="https://t.me/yididiyayd"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Telegram"
+            >
               <FaTelegramPlane className="w-6 h-6 hover:text-accent transition-transform transform hover:scale-110" />
             </a>
-            <a href="https://discord.com/yididiyaa" target="_blank" rel="noreferrer" className="hover:text-accent transition">
+
+            <a
+              href="https://discord.com/yididiyaa"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Discord"
+              className="hover:text-accent transition"
+            >
               <FaDiscord className="w-6 h-6" />
             </a>
           </motion.div>
 
-          {/* Action Buttons */}
+          {/* ✅ Action Buttons */}
           <div className="mt-8 flex justify-center gap-4">
             <a
               href="#projects"

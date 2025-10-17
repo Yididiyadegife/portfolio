@@ -36,7 +36,8 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-20 bg-gray-50 dark:bg-slate-900">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-32 items-start">
-     
+        
+        {/* --- Left Side: Text and Chart --- */}
         <div className="w-full order-1 md:order-1 flex flex-col">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -44,33 +45,36 @@ export default function AboutSection() {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
-            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">About Me</h2>
+            <h2 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+              About Me
+            </h2>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed max-w-xl">
-             Hello! I’m Yididiya, a passionate Full Stack Web Developer from Ethiopia. 
-             I enjoy creating websites that are fast, clean, and easy to use.
-             I’m always learning and exploring new tools to improve my skills.
+              Hello! I’m Yididiya, a passionate Full Stack Web Developer from Ethiopia. 
+              I enjoy creating websites that are fast, clean, and easy to use.
+              I’m always learning and exploring new tools to improve my skills.
             </p>
           </motion.div>
-        
+
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="w-full h-56"
           >
-            <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">My Skills</h3>
+            <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
+              My Skills
+            </h3>
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                 data={animatedData}
-                layout="horizontal" 
+                layout="horizontal"
                 margin={{ top: 20, right: 20, left: 20, bottom: 20 }}
               >
                 <XAxis
                   dataKey="name"
                   type="category"
-                tick={{ fill: "#899190ec" }} 
-/>
-                <XAxis dataKey="name" type="category" />
+                  tick={{ fill: '#899190ec' }}
+                />
                 <YAxis type="number" domain={[0, 100]} />
                 <Tooltip />
                 <Bar dataKey="level" fill="#06b6d4" radius={[8, 8, 8, 8]} />
@@ -79,6 +83,7 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
+        {/* --- Right Side: Image and Resume Button --- */}
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -98,18 +103,10 @@ export default function AboutSection() {
             <a
               href="/resume.pdf"
               download
-              className="mt-2 px-6 py-2"
-              style={{
-                backgroundColor: '#06b6d4',
-                color: '#fff',
-                borderRadius: '9999px',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                transition: 'background 0.2s',
-                display: 'inline-block',
-                textAlign: 'center',
-              }}
-              onMouseOver={e => (e.currentTarget.style.backgroundColor = '#0891b2')}
-              onMouseOut={e => (e.currentTarget.style.backgroundColor = '#06b6d4')}
+              className="mt-2 px-6 py-2 text-white text-center rounded-full shadow-md transition-colors duration-200"
+              style={{ backgroundColor: '#06b6d4' }}
+              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#0891b2')}
+              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#06b6d4')}
             >
               Resume
             </a>
