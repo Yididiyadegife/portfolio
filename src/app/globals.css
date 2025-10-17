@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --accent: #06b6d4;
+  --muted: #64748b;
+}
+
+.section-inner {
+  @apply max-w-4xl mx-auto px-6 py-16;
+}
